@@ -27,6 +27,10 @@ var geodatadisplay = angular
         templateUrl: 'views/example.html',
         controller: 'GeoDataDisplayCtrl'
       })
+       .when('/texample',{
+        templateUrl: 'views/texample.html',
+        controller: 'GeoDataDisplayCtrl'
+      })
        .when('/documentation',{
         templateUrl: 'views/documentation.html'
       })

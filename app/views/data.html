@@ -4,10 +4,84 @@
 	<div class="tab-pane fade in" id="Map">
 		<div map id="map"></div>
 	</div>
+	
+	<div ng-controller="Controller">
 	<div class="tab-pane fade active in" id="Data">
+	<form>
+
+		<div class="row">
+		  <div class="col-lg-6">
+		    <div class="input-group">
+		      <span class="input-group-addon">
+		       <input type="checkbox" name="c1">
+		      </span>
+		      Data Source 1:  <input type="url" ng-model="dat.d1" class="form-control" name="d1" >
+		    </div><!-- /input-group -->
+		  </div><!-- /.col-lg-6 -->
+
+		   <div class="col-lg-6">
+		    <div class="input-group">
+		      <span class="input-group-addon">
+		        <input type="checkbox" name="c2">
+		      </span>
+		    Data Source 2:  <input type="url" ng-model="dat.d2" class="form-control" name="d2">
+		    </div><!-- /input-group -->
+		  </div><!-- /.col-lg-6 -->
+
+
+		   <div class="col-lg-6">
+		    <div class="input-group">
+		      <span class="input-group-addon">
+		        <input type="checkbox" name="c3">
+		      </span>
+		    Data Source 3:  <input type="url" ng-model="dat.d3" class="form-control" name="d3">
+		    </div><!-- /input-group -->
+		  </div><!-- /.col-lg-6 -->
+
+
+		   <div class="col-lg-6">
+		    <div class="input-group">
+		      <span class="input-group-addon">
+		        <input type="checkbox" name="c4">
+		      </span>
+		    Data Source 4:  <input type="url" ng-model="dat.d4" class="form-control" name="d4">
+		    </div><!-- /input-group -->
+		  </div><!-- /.col-lg-6 -->
+
+		</div><!-- /.row -->
+		</br>
+	 <button type="submit" class="btn btn-default">Submit</button>
+	 <button ng-click="reset()">RESET</button>
+	<button ng-click="update(dat)">SAVE</button>
+	</form>
+
+	<pre>form = {{dat | json}}</pre>
+  <pre>master = {{master | json}}</pre>
+
+
+
+
 		<p>
 			Data table displayed here!		
 		</p>
 	</div>
 
 </div>
+</div>
+
+<<script>
+  function Controller($scope) {
+    $scope.master = {};
+
+    $scope.update = function(dat) {
+      $scope.master = angular.copy(dat);
+      
+    };
+
+    $scope.reset = function() {
+      $scope.dat = angular.copy($scope.master);
+    };
+
+    $scope.reset();
+  }
+</script>
