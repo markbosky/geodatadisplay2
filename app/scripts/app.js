@@ -8,8 +8,10 @@
  *
  * Main module of the application.
  */
-var geodatadisplay = angular
+var geodatadisplayModule = angular
   .module('geodatadisplay2App', [
+    //'datatables',
+    "ngTable",
     'ngAnimate',
     'ngCookies',
     'ngResource',
@@ -27,10 +29,6 @@ var geodatadisplay = angular
         templateUrl: 'views/example.html',
         controller: 'GeoDataDisplayCtrl'
       })
-       .when('/texample',{
-        templateUrl: 'views/texample.html',
-        controller: 'GeoDataDisplayCtrl'
-      })
        .when('/documentation',{
         templateUrl: 'views/documentation.html'
       })
@@ -40,4 +38,5 @@ var geodatadisplay = angular
       .otherwise({
         redirectTo: '/'
       });
-  });
+  })
+  .value('version', '0.0.1');

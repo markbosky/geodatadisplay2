@@ -8,6 +8,7 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css styles/vendor.css -->
     <!-- bower:css -->
+    <link rel="stylesheet" href="http://bazalt-cms.com/assets/ng-table/0.3.0/ng-table.css" />
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="bower_components/datatables/media/css/jquery.dataTables.css" />
     <!-- endbower -->
@@ -16,6 +17,16 @@
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
     <link rel="stylesheet" href="/styles/geodatadisplay.css">
+    <style>
+      .ng-table {border: 1px solid #000;}
+      th{border:1px solid #000;
+          background: #98bf21;
+      }
+      td{ border:1px solid #000;}
+      tr:nth-child(even) {background: #CCC;}
+      tr:nth-child(odd) {background: #FFF;}
+    </style>
+
     <script src="https://maps.googleapis.com/maps/api/js?sensor=false" type="text/javascript"></script>
   </head>
   <body ng-app="geodatadisplay2App">
@@ -30,7 +41,6 @@
           <li class="active"><a ng-href="#">Home</a></li>
           <li><a ng-href="#/documentation">Documentation</a></li>
           <li><a ng-href="#/example">Examples</a></li>
-           <li><a ng-href="#/texample">Table</a></li>
         </ul>
         <h3 class="text-muted">geodatadisplay2</h3>
       </div>
@@ -72,6 +82,8 @@
     <script src="bower_components/angular-touch/angular-touch.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/datatables/media/js/jquery.dataTables.js"></script>
+    <script src="bower_components/ng-table/ng-table.js"></script>
+    <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.8.2/jquery.dataTables.min.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -82,12 +94,18 @@
     <!-- build:js({.tmp,app}) scripts/geodatadisplay.js -->
     <script src="scripts/controllers/main.js"></script>
     <script src="scripts/controllers/about.js"></script>
-    <script src="scripts/controllers/examples.js"></script>
     <script src="scripts/controllers/geodatadisplayctrl.js"></script>
     <script src="scripts/directives/geodatadisplay.js"></script>
-     <script src="scripts/directives/geotabledisplay.js"></script>
-    <script src="scripts/directives/map.js"></script>
+    <script src="scripts/directives/geodatadisplaymap.js"></script>
     <script src="scripts/directives/datasource.js"></script>
+    <script src="scripts/directives/datagrid.js"></script>
+    <script src="scripts/directives/ngtable.js"></script>
+    <script src="scripts/services/datasetrepository.js"></script>
+    <script src="scripts/models/geodatatable.js"></script>
+    <script src="scripts/models/dataset.js"></script>
+    <script src="scripts/models/geodatadisplaymap.js"></script>
+    <script src="scripts/models/geodatadisplay.js"></script>
+    <script src="scripts/directives/datatable.js"></script>
     <!-- endbuild -->
 </body>
 </html>
