@@ -1,38 +1,48 @@
-geodatadisplayModule.directive('ngtable',  function(ngTableParams) {
+geodatadisplayModule.directive('ngtable', ['geodatadisplayModel', 'geodatatable', function(geodatadisplayModel, geodatatable) {
+   var gData;
+    var dData;
+    var eData;
+
+    
     var linker = function(scope, element, attrs) {
-     //   console.log('Executing Linker function for datagrid directive');
-      //  console.log("scope data")
-      //  console.dir(scope);
+       console.log('Executing Linker function for ngtable directive');
+        console.log("scope data")
+        console.dir(scope);
       // console.dir(scope.geodatadisplayModel.datasetRepository.datasets);
-       /* console.log(scope.geodatadisplayModel.datasetRepository.datasets[0].getData().then(function(data){
+       /*console.log(scope.geodatadisplayModel.datasetRepository.datasets[0].getData().then(function(data){
       
           console.log(data);
         }));*/
-        var ngData;
-        
 
+        console.log(scope.geodatadisplayModel.geodatatable.getData().then(function(data){
+          console.log(data);
+          gData = data;
+          console.log(gData);
+        }));
+        console.log(gData);
 
-          ngData = scope.geodatadisplayModel.geodatatable.getData(function(data){
-            //console.log(data);
-            console.log(data);
-            
+  /*var ldata = new geodatatable();
+  console.log(ldata);
+ // console.log("ldata " + ldata);
+   ldata.data = ldata.getData(function(data){
+    console.log(data);
           });
+  var pdata = ldata.getData();
+ // console.log(ldata.data);
+ // console.log(ldata)
+ // console.log(pdata)*/
 
-         // console.log(ngData);
-        /*scope.tableParams = new ngTableParams({
-          page: 1,            // show first page
-          count: 10           // count per page
-        }, {
-          total: ngData.length, // length of data
-          getData: function($defer, params) {
-              $defer.resolve(data.slice((params.page() - 1) * params.count(), params.page() * params.count()));
-          }
-      });*/
+
+   /*scope.geodatadisplayModel.geodatatable.getData(function(data){
+            console.log('Executing Linker function for ngtable scope directive');
+            console.log(data);
+           // eData.data = data;
+          });*/
     };
     return {
         restrict: 'E',
         link: linker,
         require: '^geodatadisplay'
     };
-});
+}]);
 

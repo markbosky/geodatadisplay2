@@ -1,6 +1,5 @@
 geodatadisplayModule.factory('geodatadisplaymap',[function() {
 
-
 	function geodatadisplaymap(){
         this.name = "geodatadisplaymap model";
         this.map;

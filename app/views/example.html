@@ -41,20 +41,15 @@
 		</tbody>
 	</table>-->
 	<!--<table datatable="" dt-options="dtOptions" dt-columns="dtColumns"></table>-->
-         <h2>This table uses columns defined in controller</h2> 
-        <table datatable options="options"></table>
-   
+
+    <h2>Data Table</h2> 
+    <table datatable options="options"></table>
 
 
-       <!-- <button ng-click="addData()">Add Data</button>
-         <h2>This table uses columns defined in controller</h2> 
-        <table data-table options="options"></table>-->
+	<p id="latlng"></p>
+	<geodatadisplaymap id="map" options=""/>
 
-<p id="latlng"></p>
-<geodatadisplaymap id="map" options=""/>
-
-	<!--Search: <input ng-model="searchText">
-	<table ng-table="tableParams">
+	<!--<table>
 		<thead>
 			<tr>
 				<th style="border-bottom: 1px solid #000;" ng-repeat="key in geodatadisplayModel.geodatatable.keys">
@@ -63,7 +58,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr style="border-bottom: 1px solid #000;" ng-repeat="row in geodatadisplayModel.geodatatable.dataSource | filter:searchText">
+			<tr style="border-bottom: 1px solid #000;" ng-repeat="row in geodatadisplayModel.geodatatable.dataSource">
 				<td ng-repeat="key in geodatadisplayModel.geodatatable.keys">{{row[key]}}</td>
 			</tr>
 		</tbody>
@@ -76,18 +71,15 @@
 		</tr>
 	</table>-->
 
-	<ngtable/>
+	<!--<ngtable/>-->
 	
 	
 	<!--<datagrid/>-->
-	<!--<table ngtable/>-->
-
 	<table>
 		<tr ng-repeat="dataset in geodatadisplayModel.datasetRepository.datasets[0]">
 			<th>DATASET</th>
 			<td>{{dataset}}</td>
     	</tr>
 	</table>
-
 </geodatadisplay>
 

@@ -10,8 +10,6 @@
  */
 var geodatadisplayModule = angular
   .module('geodatadisplay2App', [
-    //'datatables',
-    "ngTable",
     'ngAnimate',
     'ngCookies',
     'ngResource',
