@@ -18,10 +18,14 @@ geodatadisplayModule.directive('geodatadisplaymap', function() {
                 };
 
                 var marker = new google.maps.Marker({
-                  position: pos,
-                  map: map,
-                  animation: google.maps.Animation.BOUNCE,
-                  title: 'My Current Location'
+                    position: pos,
+                    icon: {
+                        path: google.maps.SymbolPath.CIRCLE,
+                        scale: 7
+                    },
+                    map: map,
+                    animation: google.maps.Animation.BOUNCE,
+                    title: 'My Current Location'
                 });
           
                 // map.setCenter(pos);

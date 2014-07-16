@@ -3,7 +3,6 @@
 geodatadisplayModule.factory('geodatadisplayModel', ['geodatadisplaymap', 'datasetRepository', 'geodatatable',
     function(geodatadisplaymap, datasetRepository, geodatatable) {
 
-
         function geodatadisplayModel(scope) {
             this.geodatadisplaymap = geodatadisplaymap;
             this.datasetRepository = datasetRepository;
@@ -15,10 +14,14 @@ geodatadisplayModule.factory('geodatadisplayModel', ['geodatadisplaymap', 'datas
             	console.log(geoJSON);
             	geodatadisplaymap.add(geoJSON);
             });
+
+            /*dataset.getColumns().then(function(columns) {
+                console.log("GEODATADISPLAY COLUMNS: " + columns);
+            });*/
+
         }
 
         return new geodatadisplayModel();
-
 
     }
 ]);

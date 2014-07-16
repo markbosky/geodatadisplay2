@@ -30,9 +30,6 @@ var geodatadisplayModule = angular
        .when('/documentation',{
         templateUrl: 'views/documentation.html'
       })
-      .when('/data', {
-      	templateUrl: '/views/data.html'
-      })
       .otherwise({
         redirectTo: '/'
       });

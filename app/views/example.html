@@ -1,14 +1,10 @@
-
 <geodatadisplay>
 	{{geodatadisplaymap.name}}
 	<!--<dataset name="parks" src="http://data.mo.gov/api/rsfsfs"></dataset>
 	<dataset name="hospitals" src="http://data.mo.gov/api/xksjfa"></dataset>
 	<dataset name="offices" src="http://data.mo.gov/api/xksjfa"></dataset>-->
-	<dataset name="DOR license offices" src="http://data.mo.gov/api/views/835g-7keg/rows.json"></dataset>
-	<dataset name="new liquor licenses" src="http://data.mo.gov/api/views/dymb-xy5c/rows.json"></dataset>
-	<dataset name="county license" src="http://data.mo.gov/api/views/hbmv-rqk9/rows.json">
-	<dataset name="lake" src="/lake.json"></dataset>
-	
+	<dataset name="DOR License Offices" src="http://data.mo.gov/api/views/835g-7keg/rows.json" end="http://data.mo.gov/resource/835g-7keg.json"></dataset>
+	<dataset name="Active Liquor Licenses" src="http://data.mo.gov/api/views/yyhn-562y/rows.json" end="http://data.mo.gov/resource/yyhn-562y.json"></dataset>
 
 	<input type="text" ng-model="url"></input>{{url}}
 	<button type="submit" ng-click="addDataset()">submit</button>
@@ -18,13 +14,6 @@
 			<label><input type="checkbox" name="{{dataset.name}}" value="{{dataset.src}}" ng-click="geodatadisplayModel.displayDataset(dataset)"> {{dataset.name}} </label>
 		</li>
 	</ul>
-	
-	<!--<table ng-table="tableParams">
-		<tr ng-repeat="geodata in geodatadisplayModel.datasetRepository.datasets[1]">
-			<th>DataColumn</th>
-			<td>{{geodata}}</td>
-		</tr>
-	</table>-->
 
 	<!--<table>
 		<thead>
@@ -42,8 +31,11 @@
 	</table>-->
 	<!--<table datatable="" dt-options="dtOptions" dt-columns="dtColumns"></table>-->
 
-    <h2>Data Table</h2> 
-    <table datatable options="options"></table>
+   <!-- <h2>Data Table</h2> 
+    <table datatable options="options"></table>-->
+
+	<h2>DT META</h2>
+    <table datatablemeta options="options"></table>
 
 
 	<p id="latlng"></p>
@@ -64,22 +56,11 @@
 		</tbody>
 	</table>-->
 
-	<!--<table ng-table="tableParams">
-		<tr ng-repeat="gdata in geodatadisplayModel.geodatatable.dataSource[0]">
-			<th>Key</th>
-			<td>{{gdata}}</td>
-		</tr>
-	</table>-->
-
-	<!--<ngtable/>-->
-	
-	
-	<!--<datagrid/>-->
-	<table>
+	<!--<table>
 		<tr ng-repeat="dataset in geodatadisplayModel.datasetRepository.datasets[0]">
 			<th>DATASET</th>
 			<td>{{dataset}}</td>
     	</tr>
-	</table>
+	</table>-->
 </geodatadisplay>
 

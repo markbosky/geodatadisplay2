@@ -49,17 +49,54 @@ var linker = function(scope, element, attrs, controller) {
             nData = data;
           });
          console.log(nData);*/
-
+    
          
 
-         console.log(scope.geodatadisplayModel.geodatatable.getData().then(function(data){
+        console.log(scope.geodatadisplayModel.geodatatable.getData().then(function(data){
 
 
           //console.log(data);
           var getDataObject = data;
-          console.log("getDataObject: " + getDataObject);
-          var getDataObjectKeys = Object.keys(getDataObject[0]);
-          console.log("getDataObjectsKeys: " + getDataObjectKeys);
+          //alert(getDataObject[0]);
+          //console.log("getDataObject: " + getDataObject);
+          var getDataObjectKeys = Object.keys(getDataObject[1]);
+          var key2 = Object.keys(getDataObject);
+         // console.log("getDataObjectsKeys: " + getDataObjectKeys);
+          //console.log("key2: " + key2);
+
+         // var recursiveDecoded = decodeURIComponent($.param(getDataObjectKeys));
+         // alert(recursiveDecoded);
+         var key3 = Object.getOwnPropertyNames(getDataObjectKeys).sort();
+        // alert(key3);
+          
+
+         //var keyz = Object_keys(getDataObject);
+
+          var keyz = [];
+          for(var k in getDataObject) keyz.push(k);
+          //alert("total " + keyz.length + " keys: " + keyz);
+
+          /*if (typeof Object.keys !== "function") {
+            (function() {
+              Object.keys = Object_keys;
+              function Object_keys(obj) {
+                  var keys = [], name;
+                  for (name in obj) {
+                      if (obj.hasOwnProperty(name)) {
+                          keys.push(name);
+                      }
+                  }
+                  return keys;
+              }
+            })();
+          }*/
+
+          /*for (var key in getDataObject) {
+            if (getDataObject.hasOwnProperty(key)) {
+              alert(key + " -> " + getDataObject[key]);
+              //console.log(key + " -> " + getDataObject[key]);
+            }
+          }*/
 
           var columns = [];
           jQuery.each(getDataObjectKeys, function(i, value){
@@ -69,38 +106,19 @@ var linker = function(scope, element, attrs, controller) {
           console.log("columns: " + columns);
           var result = [];
           var item;
-          var LISTING_RESULTS = [];
-          var result2 = [];
+          
           // Processing JSON data into an array
           for (i = 0; i < getDataObject.length; i++) {
-             item = getDataObject[i];
-
-
-              /*for (j = 0; j < item.length; j++) {
-                //result[i] = item[j];
-                console.log("Item: " + item[j]);
-              }*/
-              
-                result.push(new Array());
-                for (var k in item){
-                  if (typeof item[k] !== 'function') {
-                  //alert("Key is " + k + ", value is" + item[k]);
-                  result[i].push(item[k]);
-                  }
-                }
-                //console.log("result:" + result);
-              
-
-              /*for(j = 0; j < item.length; j++){
-
-                result[i].push(thing);
-              }*/
-            //LISTING_RESULTS[i] = new Array(item.phone_number,item.secondary_type,item.street,item.zipcode,item.state,item.primary_type,item.subdist,item.city,item.secondary_license,item.county,item.street_number,item.primary_license,item.district,item.licensee);
-              /*jQuery.each(item, function(key, value){
-                var obj2 = value + ",";
-                console.log(obj2);
-                result.push(obj2);
-              });*/
+            item = getDataObject[i];   
+            result.push(new Array());
+            
+            for (var k in item){
+              if (typeof item[k] !== 'function') {
+                //alert("Key is " + k + ", value is" + item[k]);
+                result[i].push(item[k]);
+              }
+            }
+            //console.log("result:" + result);
           }
           
 
@@ -116,7 +134,7 @@ var linker = function(scope, element, attrs, controller) {
           }],
           bJQueryUI: true,
           bDestroy: true,
-          aaData: result/*LISTING_RESULTS[
+          aaData: result/*[
               ["Webber", "Adam"],
               ["Bosky", "Mark"],
               ["Distler", "Rodney"],
