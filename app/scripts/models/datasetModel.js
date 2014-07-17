@@ -22,6 +22,14 @@ geodatadisplayModule.factory('datasetModel', ['$http', '$q',
             return defer.promise;
         }
 
+        datasetModel.prototype.getMarker = function() {
+            var defer = $q.defer();
+            var _this = this;
+            var marker = this.marker;
+            console.log("Marker: " + marker);
+            return marker;
+        }
+
         datasetModel.prototype.getEnd = function() {
             var defer = $q.defer();
 

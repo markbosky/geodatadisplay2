@@ -1,0 +1,16 @@
+<geodatadisplay>
+	<section>
+		<ul class="nav nav-pills">
+			<li ng-class="{ active: panels.isSelected(1) }"> <a href ng-click="panels.selectTab(1)">Map</a> </li>
+			<li ng-class="{ active: panels.isSelected(2) }"> <a href ng-click="panels.selectTab(2)">DataTable</a> </li>
+		</ul>
+
+		<div class="panel" ng-show="panels.isSelected(1)">
+			<p id="latlng"></p>
+			<geodatadisplaymap id="map" options=""/>
+		</div>
+		<div class="panel" ng-show="panels.isSelected(2)">
+			<div ng-include="'views/table.html'"></div>
+		</div>
+	</section>
+</geodatadisplay>

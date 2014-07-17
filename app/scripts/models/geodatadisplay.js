@@ -11,9 +11,12 @@ geodatadisplayModule.factory('geodatadisplayModel', ['geodatadisplaymap', 'datas
 
         geodatadisplayModel.prototype.displayDataset = function(dataset) {
             dataset.getGeoJSON().then(function(geoJSON) {
-            	console.log(geoJSON);
-            	geodatadisplaymap.add(geoJSON);
+            	var marker = dataset.getMarker();
+                console.log("display marker: " + marker);
+                console.log(geoJSON);
+            	geodatadisplaymap.add(geoJSON, marker);
             });
+            
 
             /*dataset.getColumns().then(function(columns) {
                 console.log("GEODATADISPLAY COLUMNS: " + columns);
