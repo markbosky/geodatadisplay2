@@ -12,7 +12,7 @@ geodatadisplayModule.factory('geodatadisplaymap',[function() {
 
     geodatadisplaymap.prototype.add = function(geoJSON, marker){
         this.map.data.addGeoJson(geoJSON);
-        console.log(geoJSON);
+       // console.log(geoJSON);
 
         this.map.data.setStyle({
             icon: marker,

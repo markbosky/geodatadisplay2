@@ -12,6 +12,19 @@ geodatadisplayModule
  // 	console.log('Scope for GeoDataDisplayCtrl');
  // 	console.dir($scope);
 
+ /*$scope.selection  = {
+        ids: {"1": false}
+    };*/
+    $scope.selection  = {
+        ids: {"1": false}
+        
+    };
+
+ $scope.selectionList = false;
+
+
+
+
   
   var myDataset = new datasetModel();
   $scope.geodatadisplayModel = geodatadisplayModel;

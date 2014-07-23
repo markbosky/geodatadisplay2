@@ -6,23 +6,51 @@
 	<!--<dataset name="parks" src="http://data.mo.gov/api/rsfsfs"></dataset>
 	<dataset name="hospitals" src="http://data.mo.gov/api/xksjfa"></dataset>
 	<dataset name="offices" src="http://data.mo.gov/api/xksjfa"></dataset>-->
-	<dataset name="DOR License Offices" src="http://data.mo.gov/api/views/835g-7keg/rows.json" end="http://data.mo.gov/resource/835g-7keg.json" marker="dor-marker.png"></dataset>
-	<dataset name="Active Liquor Licenses" src="http://data.mo.gov/api/views/yyhn-562y/rows.json" end="http://data.mo.gov/resource/yyhn-562y.json" marker="alcohol-marker.png"></dataset>
-
-	<!--<input type="text" ng-model="url"></input>{{url}}
-	<button type="submit" ng-click="addDataset()">submit</button>-->
+	<dataset name="DOR License Offices" id="1" status='' src="http://data.mo.gov/api/views/835g-7keg/rows.json" marker="dor-marker.png" ></dataset>
+	<dataset name="Active Liquor Licenses" id="2" status='' src="http://data.mo.gov/api/views/yyhn-562y/rows.json" marker="alcohol-marker.png" ></dataset>
+	
 	
 	<ul>
-		<li ng-repeat="dataset in geodatadisplayModel.datasetRepository.datasets" style="list-style-image: url({{dataset.marker}});">
-			<label><input type="checkbox" name="{{dataset.name}}" value="{{dataset.src}}" ng-click="geodatadisplayModel.displayDataset(dataset)"> {{dataset.name}} </label>
+		<li ng-repeat="dataset in geodatadisplayModel.datasetRepository.datasets" style="list-style-image: url({{dataset.marker}});" >
+			<label class="checkbox-inline">
+				<input type="checkbox" ng-model="selection.ids[dataset.id]" name="{{dataset.name}}" value="{{dataset.src}}" ng-click="geodatadisplayModel.displayDataset(dataset)" id="{{dataset.id}}" />{{dataset.name}} 
+			</label>
 		</li>
-	</ul>
+	</ul><br>
 
+	
+	<span ng-repeat="dataset in geodatadisplayModel.datasetRepository.datasets">
+      <label class="checkbox" for="{{dataset.id}}">
+        <input type="checkbox" ng-model="selection.ids[dataset.id]" name="{{dataset.name}}" value="{{dataset.src}}" ng-click="geodatadisplayModel.displayDataset(dataset)" id="{{dataset.id}}" />
+        {{dataset.name}}
+      </label>
+    </span>
+    <pre ng-bind="selection.ids | json"></pre> 
+
+
+        <!--<button ng-click="addData()">Add Data</button>
+        <button ng-click="displayDT()">update</button>
+         <h2>This table uses columns defined in controller</h2> 
+        <table my-table options="options"></table>-->
+
+
+	<input type="text" placeholder="Add JSON Dataset" ng-model="url"></input>{{url}}
+	<button type="submit" ng-click="addDataset()">submit</button><br>
+	<br>
 	<ul class="list-group">
 		<li style="list-style-type:none;">
 			<panels>{{tab}}</panels>
 		</li>
 	</ul>
+
+	<div ng-controller="Ctrl">
+		<button ng-click="addData()">Add Data</button><br/>
+
+        <table my-table="overrideOptions" 
+            ao-columns="tblColumns" 
+            aa-data="tblData" >
+        </table><br/>        
+    </div>
 
 
 
