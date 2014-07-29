@@ -1,5 +1,5 @@
 geodatadisplayModule.factory('datasetModel', ['$http', '$q',
-    function($http, $q, $scope) {
+    function($http, $q) {
 
         function datasetModel($http) {
             this.dataTable;
@@ -34,7 +34,7 @@ geodatadisplayModule.factory('datasetModel', ['$http', '$q',
            
             //$http.jsonp(this.src + '?$jsonp=JSON_CALLBACK').
             //success(function(data, status, headers, config) {
-            $http.get('/booze-meta.json').
+            $http.get(this.src).
             success(function(data, status, headers, config) {
                 
                 _this.data = data;
@@ -93,6 +93,48 @@ geodatadisplayModule.factory('datasetModel', ['$http', '$q',
             return defer.promise;
         }
 
+        datasetModel.prototype.getData4 = function() {
+            var defer = $q.defer();
+
+            var _this = this;
+            var test;
+            var jString;
+           
+            //$http.jsonp(this.src + '?$jsonp=JSON_CALLBACK').
+            //success(function(data, status, headers, config) {
+            $http.get('booze-meta.json').
+            success(function(data, status, headers, config) {
+                
+                _this.data = data;
+                jString = JSON.stringify(data);
+               // console.log("stringigy: " + jString);
+                obj = jQuery.parseJSON( jString );
+                
+                for (var i = 0; i < data.length; i++) {
+                    for (var prop in data[i]) {
+                        if (data[i].hasOwnProperty(prop)) {
+                            var key = prop;
+                            break;
+                        }
+                    }
+                //    console.log(key);
+                }
+               
+                _this.keys = Object.keys(data);
+               // console.log(_this.keys);
+              //  console.log(data);
+               // console.log(_this.data);
+               console.log("getData4() has run");
+                defer.resolve(data);
+        
+            }).
+            error(function(data, status, headers, config) {
+                console.log('There was an error with the request');
+            });
+            console.log("defer promise: " + defer.promise);
+            return defer.promise;
+        }
+
         datasetModel.prototype.getMarker = function() {
             var defer = $q.defer();
             var _this = this;
@@ -117,7 +159,7 @@ geodatadisplayModule.factory('datasetModel', ['$http', '$q',
             return defer.promise;
         }*/
 
-        datasetModel.prototype.getGeoJSON = function($scope) {
+        datasetModel.prototype.getGeoJSON = function() {
             var defer = $q.defer();
 
             this.getData().then(function(data) {
@@ -280,7 +322,7 @@ geodatadisplayModule.factory('datasetModel', ['$http', '$q',
                       dtColumns.push(obj);
                     });
 
-                    //console.log("dtColumns: " + dtColumns);
+                    console.log("dtColumns datasetModel: " + dtColumns);
                     //console.log(dtColumns[0]);
                     var promiseArray = [];
                     promiseArray.push(result);
@@ -291,7 +333,7 @@ geodatadisplayModule.factory('datasetModel', ['$http', '$q',
 
             return defer.promise;
         }
-
+        
         datasetModel.prototype.displayDataset = function() {
              var columns = [];
              var dtColumns = [];

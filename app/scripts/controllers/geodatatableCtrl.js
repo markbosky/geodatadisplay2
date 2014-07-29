@@ -6,13 +6,13 @@ geodatadisplayModule
     var columns;
     var dtData;
 
-    console.log(myDataset.combine().then(function(data){
+    /*console.log(myDataset.combine().then(function(data){
         dtData = data[0];
         columns = data[1];
        // console.log("DDAATA: " + data[0]);
        // console.log("columns :" + data[1]);
         console.dir(data);
-    }))
+    }))*/
 
         //geodatatable.add(options);
     

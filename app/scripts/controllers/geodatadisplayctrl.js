@@ -8,7 +8,7 @@
  * Controller of the geodatadisplay2App
  */
 geodatadisplayModule
-  .controller('GeoDataDisplayCtrl', ['$scope','$filter','geodatadisplayModel', 'datasetModel','geodatatable', function ($scope, $filter, geodatadisplayModel, datasetModel, geodatatable, scope) {
+  .controller('GeoDataDisplayCtrl', ['$scope','$filter','$http','geodatadisplayModel', 'datasetModel','geodatatable', function ($scope, $filter, $http, geodatadisplayModel, datasetModel, geodatatable, scope) {
  // 	console.log('Scope for GeoDataDisplayCtrl');
  // 	console.dir($scope);
 
@@ -22,10 +22,6 @@ geodatadisplayModule
 
  $scope.selectionList = false;
 
-
-
-
-  
   var myDataset = new datasetModel();
   $scope.geodatadisplayModel = geodatadisplayModel;
 

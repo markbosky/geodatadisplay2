@@ -1,5 +1,5 @@
 <geodatadisplay>
-	
+	<link rel="stylesheet" href="bower_components/datatables/media/css/jquery.dataTables.css" />
 	
 
 	{{geodatadisplaymap.name}}
@@ -27,7 +27,39 @@
     </span>
     <pre ng-bind="selection.ids | json"></pre> 
 
+    <!--<div ng-controller="Ctrl">
+		<button ng-click="addData()">Add Data</button><br/>
 
+        <table my-table="overrideOptions" 
+            ao-columns="tblColumns" 
+            aa-data="tblData" >
+        </table><br/>        
+    </div>
+
+    </div>-->
+
+	 <div ng-controller="testCtrl">   
+    
+        <table atable="overrideOptions"
+        	ao-column-defs="columnDefs"
+            aa-data="sampleProductCategories"
+        	fn-row-callback="myCallback"
+            >
+            <thead>
+            <tr>
+				
+               <!--<th style="width:150px">Category</th>
+                <th style="width:250px">Name</th>
+                <th style="width:100px">Price</th>-->
+               
+
+            </tr>
+            </thead>
+        </table>
+       <!--{{sampleProductCategories}}-->
+      <!-- {{dataItems}}-->
+      {{message}}
+    </div>
         <!--<button ng-click="addData()">Add Data</button>
         <button ng-click="displayDT()">update</button>
          <h2>This table uses columns defined in controller</h2> 
@@ -43,14 +75,8 @@
 		</li>
 	</ul>
 
-	<div ng-controller="Ctrl">
-		<button ng-click="addData()">Add Data</button><br/>
 
-        <table my-table="overrideOptions" 
-            ao-columns="tblColumns" 
-            aa-data="tblData" >
-        </table><br/>        
-    </div>
+
 
 
 

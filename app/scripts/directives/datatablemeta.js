@@ -35,6 +35,21 @@ geodatadisplayModule.directive('datatablemeta', function (geodatadisplayModel) {
         };
 
         var dataTable = element.dataTable(scope.options);
+
+          // watch for any changes to our data, rebuild the DataTable
+        /*scope.$watch(attrs.aaData, function (value) {
+            var val = value || null;
+            if (val) {
+                dataTable.fnClearTable();
+                dataTable.fnAddData(scope.$eval(attrs.aaData));
+            }
+        });
+
+        if (attrs.useParentScope) {
+            scope.$parent.dataTable = dataTable;
+        } else {
+            scope.dataTable = dataTable;
+        }*/
     
        // scope.$watch('options', geodatadisplayModel.displayDataset, true);
 
@@ -54,6 +69,8 @@ geodatadisplayModule.directive('datatablemeta', function (geodatadisplayModel) {
   return {
       restrict: 'E, A, C',
       link: linker
+
+
       /*scope: {
           options: "="
       }*/
