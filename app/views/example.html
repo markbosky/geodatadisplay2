@@ -1,7 +1,5 @@
 <geodatadisplay>
-	<link rel="stylesheet" href="bower_components/datatables/media/css/jquery.dataTables.css" />
 	
-
 	{{geodatadisplaymap.name}}
 	<!--<dataset name="parks" src="http://data.mo.gov/api/rsfsfs"></dataset>
 	<dataset name="hospitals" src="http://data.mo.gov/api/xksjfa"></dataset>
@@ -27,121 +25,21 @@
     </span>
     <pre ng-bind="selection.ids | json"></pre> 
 
-    <!--<div ng-controller="Ctrl">
-		<button ng-click="addData()">Add Data</button><br/>
-
-        <table my-table="overrideOptions" 
-            ao-columns="tblColumns" 
-            aa-data="tblData" >
-        </table><br/>        
-    </div>
-
-    </div>-->
-
-	 <div ng-controller="testCtrl">   
-    
-        <!--<table atable="overrideOptions"
-        	ao-column-defs="columnDefs"
-            aa-data="sampleProductCategories"
-        	fn-row-callback="myCallback"
-            >
-            <thead>
-            <tr>
-				
-               <!--<th style="width:150px">Category</th>
-                <th style="width:250px">Name</th>
-                <th style="width:100px">Price</th>-->
-               
-
-           <!-- </tr>
-            </thead>
-        </table>-->
-       <!--{{sampleProductCategories}}-->
-      <!-- {{dataItems}}-->
-      {{message}}
-      <!--{{options}}-->
-
-	<table atable="options"></table>
-     
-       
-        <!--{{DTdata}}-->
-        <!--{{columnsDT}}
-        {{columnKeys}}-->
-        <!--{{options}}-->
-        <!--<table my-table options="options"></table>-->
-
-
-    </div>
-        <!--<button ng-click="addData()">Add Data</button>
-        <button ng-click="displayDT()">update</button>
-         <h2>This table uses columns defined in controller</h2> 
-        <table my-table options="options"></table>-->
-
-
 	<input type="text" placeholder="Add JSON Dataset" ng-model="url"></input>{{url}}
-	<button type="submit" ng-click="addDataset()">submit</button><br>
-	<br>
+	<button type="submit" ng-click="addDataset()">submit</button><br><br>
+
+	<div ng-controller="dtCtrl">   
+		<table atable="options"></table>
+    	{{message}}
+    </div>
+	
 	<ul class="list-group">
 		<li style="list-style-type:none;">
 			<panels>{{tab}}</panels>
 		</li>
 	</ul>
 
+	
 
-
-
-
-
-	<!--<table>
-		<thead>
-			<tr>
-				<th ng-repeat="key in geodatadisplayModel.geodatatable.keys">
-				{{key}}
-				</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr ng-repeat="row in geodatadisplayModel.geodatatable.dataSource">
-				<td ng-repeat="key in geodatadisplayModel.geodatatable.keys">{{row[key]}}</td>
-			</tr>
-		</tbody>
-	</table>-->
-	<!--<table datatable="" dt-options="dtOptions" dt-columns="dtColumns"></table>-->
-
-   <!-- <h2>Data Table</h2> 
-    <table datatable options="options"></table>-->
-
-	<!--<h2>DT META</h2>
-    <table datatablemeta options="options"></table>-->
-
-    
-
-
-	<!--<p id="latlng"></p>
-	<geodatadisplaymap id="map" options=""/></geodatadisplaymap></br>
-
-	<div ng-include="'views/table.html'"></div>-->
-
-	<!--<table>
-		<thead>
-			<tr>
-				<th style="border-bottom: 1px solid #000;" ng-repeat="key in geodatadisplayModel.geodatatable.keys">
-				{{key}}
-				</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr style="border-bottom: 1px solid #000;" ng-repeat="row in geodatadisplayModel.geodatatable.dataSource">
-				<td ng-repeat="key in geodatadisplayModel.geodatatable.keys">{{row[key]}}</td>
-			</tr>
-		</tbody>
-	</table>-->
-
-	<!--<table>
-		<tr ng-repeat="dataset in geodatadisplayModel.datasetRepository.datasets[0]">
-			<th>DATASET</th>
-			<td>{{dataset}}</td>
-    	</tr>
-	</table>-->
 </geodatadisplay>
 

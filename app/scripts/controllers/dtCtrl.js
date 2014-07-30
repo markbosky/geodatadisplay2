@@ -1,4 +1,4 @@
-function testCtrl($scope, $http){
+function dtCtrl($scope, $http){
   $scope.message = '';            
 
   $scope.myCallback = function(nRow, aData, iDisplayIndex, iDisplayIndexFull) {            
@@ -102,9 +102,9 @@ function testCtrl($scope, $http){
 
       /////////////////////////
 
-      var aryJSONColTableDT = [];
+  /*var aryJSONColTableDT = [];
 
-  /*for (var i=0; i < columnsDT.length; i++ ) {
+  for (var i=0; i < columnsDT.length; i++ ) {
     aryJSONColTableDT.push({
       "aTargets": [i],
       "mDataProp": columnsDT[i],
@@ -134,143 +134,23 @@ function testCtrl($scope, $http){
               "bSortable": true,
               "aTargets": [0, 1]
           }];
-
-
-           scope.options = {
-          aoColumns: dtColumns,
-          aoColumnDefs: [{
-              "bSortable": true,
-              "aTargets": [0, 1]
-          }],
-          bJQueryUI: true,
-          bDestroy: true,
-          aaData: getDataObject
-        };*/
-
-
-      ////////////////
-
-
+*/
   }).
   error(function(data, status, headers, config) {
       console.log('There was an error with the request');
   });
   $scope.options = {
-          aoColumns: dtColumns,
-          aoColumnDefs: [{
-              "bSortable": true,
-              "aTargets": [0, 1]
-          }],
-          bJQueryUI: true,
-          bDestroy: true,
-          aaData: result
-        };
-
-        console.log("$SCOPE.OPTIONS");
-        console.dir($scope.options);
-  /*
-      var json = {};
-      var keys;
-      json.bbox = [];
-      json.crs = {};
-      json.features = [];
-      json.type = 'FeatureCollection';
-      this.json = json;
-
-      var columns = [];
-      for (var i = 0; i < data.meta.view.columns.length; i++) {
-          var column = data.meta.view.columns[i];
-          if (column.id != -1) {
-              column.positionInArray = i;
-              columns[column.fieldName] = column;
-          }
-      }
-      
-      this.columns = columns;
-
-    */
-  
- 
-  products = [
-    {
-      "name": "1948 Porsche 356-A Roadster",
-      "price": 53.9,
-      "category": "Classic Cars"
-    },
-    {
-      "name": "1948 Porsche Type 356 Roadster",
-      "price": 62.16,
-      "category": "Classic Cars"
-    },
-    {
-      "name": "1949 Jaguar XK 120",
-      "price": 47.25,
-      "category": "Classic Cars"
-    },
-    {
-      "name": "1936 Harley Davidson El Knucklehead",
-      "price": 24.23,
-      "category": "Motorcycles"
-    },
-    {
-      "name": "1957 Vespa GS150",
-      "price": 32.95,
-      "category": "Motorcycles"
-    },
-    {
-      "name": "1960 BSA Gold Star DBD34",
-      "price": 37.32,
-      "category": "Motorcycles"
-    },
-    {
-      "name": "1900s Vintage Bi-Plane",
-      "price": 34.25,
-      "category": "Planes"
-    },
-    {
-      "name": "1900s Vintage Tri-Plane",
-      "price": 36.23,
-      "category": "Planes"
-    },
-    {
-      "name": "1928 British Royal Navy Airplane",
-      "price": 66.74,
-      "category": "Planes"
-    },
-    {
-      "name": "1980s Black Hawk Helicopter",
-      "price": 77.27,
-      "category": "Planes"
-    },
-    {
-      "name": "ATA: B757-300",
-      "price": 59.33,
-      "category": "Planes"
-    }
-  ];
-
-  $scope.sampleProductCategories = products
-  console.log("products: ");
-  console.dir($scope.sampleProductCategories);
-  var columnKeys =  Object.keys(products[1]);
-  $scope.columnKeys = columnKeys;
-  
-
-  var aryJSONColTable = [];
-
-  for (var i=0; i < columnKeys.length; i++ ) {
-    aryJSONColTable.push({
-      "aTargets": [i],
-      "mDataProp": columnKeys[i],
-      "sTitle": columnKeys[i],        
-     });
+    aoColumns: dtColumns,
+    aoColumnDefs: [{
+        "bSortable": true,
+        "aTargets": [0, 1]
+    }],
+    bJQueryUI: true,
+    bDestroy: true,
+    aaData: result
   };
-  $scope.columnDefs = aryJSONColTable;
-  /*$scope.columnDefs = [{
-   "aoColumns": columnKeys, 
-    "aTargets":[0,2]
-  }];*/
 
-           
-                      
+  console.log("$SCOPE.OPTIONS");
+  console.dir($scope.options);
+                     
 }

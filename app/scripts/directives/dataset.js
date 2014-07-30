@@ -11,8 +11,6 @@ geodatadisplayModule.directive('dataset', function ($resource, datasetModel) {
     dataset.src = attrs.src;
     dataset.name = attrs.name;
     dataset.id = attrs.id;
-    dataset.columns;
-    //dataset.end = attrs.end;
     dataset.marker = attrs.marker;
       
     scope.geodatadisplayModel.datasetRepository.datasets.push(dataset);

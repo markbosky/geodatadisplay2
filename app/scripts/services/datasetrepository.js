@@ -9,17 +9,4 @@ geodatadisplayModule.service('datasetRepository', function() {
 			dataset.loadDataSet();
 		}
 	}
-
-	// function datasetRepository(){
-
-	// }
-
-	// datasetRepository.prototype.getDataset = function(){
-
-	// };
-
-	// datasetRepository.datasets = [];
-
-	// return datasetRepository;
-
 });

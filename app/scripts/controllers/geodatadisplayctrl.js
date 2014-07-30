@@ -8,16 +8,12 @@
  * Controller of the geodatadisplay2App
  */
 geodatadisplayModule
-  .controller('GeoDataDisplayCtrl', ['$scope','$filter','$http','geodatadisplayModel', 'datasetModel','geodatatable', function ($scope, $filter, $http, geodatadisplayModel, datasetModel, geodatatable, scope) {
+  .controller('GeoDataDisplayCtrl', ['$scope','geodatadisplayModel', 'datasetModel','geodatatable', function ($scope, geodatadisplayModel, datasetModel, geodatatable) {
  // 	console.log('Scope for GeoDataDisplayCtrl');
  // 	console.dir($scope);
 
- /*$scope.selection  = {
-        ids: {"1": false}
-    };*/
     $scope.selection  = {
-        ids: {"1": false}
-        
+        ids: {"1": false}   
     };
 
  $scope.selectionList = false;
