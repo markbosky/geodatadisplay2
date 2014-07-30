@@ -34,6 +34,8 @@ geodatadisplayModule.directive('datatablemeta', function (geodatadisplayModel) {
           aaData: getDataObject
         };
 
+        console.log("scope.options: ");
+        console.dir(scope.options);
         var dataTable = element.dataTable(scope.options);
 
           // watch for any changes to our data, rebuild the DataTable
